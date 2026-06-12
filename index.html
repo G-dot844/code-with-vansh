@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DutyCheck</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-label="DutyCheck overview">
+        <div>
+          <p class="eyebrow">DutyCheck</p>
+          <h1>Worker duty board</h1>
+        </div>
+        <div class="status-pill">
+          <span class="dot"></span>
+          <span id="todayText">Today</span>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel worker-panel">
+          <div class="panel-heading">
+            <span class="icon-badge">✓</span>
+            <div>
+              <h2>Worker check in</h2>
+              <p>Mark yourself on duty or off duty.</p>
+            </div>
+          </div>
+
+          <form id="workerForm" class="worker-form">
+            <label for="workerName">Worker name</label>
+            <input id="workerName" name="workerName" type="text" placeholder="Enter your name" autocomplete="name" required>
+
+            <div class="button-row">
+              <button class="primary" type="submit" data-action="in">Check in</button>
+              <button class="secondary" type="submit" data-action="out">Check out</button>
+            </div>
+          </form>
+
+          <p id="message" class="message" role="status"></p>
+        </div>
+
+        <div class="panel boss-panel">
+          <div class="panel-heading">
+            <span class="icon-badge">◎</span>
+            <div>
+              <h2>Boss dashboard</h2>
+              <p>See who is on duty right now.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid" aria-label="Duty summary">
+            <div>
+              <span id="onDutyCount">0</span>
+              <p>On duty</p>
+            </div>
+            <div>
+              <span id="totalCount">0</span>
+              <p>Total workers</p>
+            </div>
+          </div>
+
+          <div id="workerList" class="worker-list" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

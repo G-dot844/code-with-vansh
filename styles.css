@@ -1,0 +1,297 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6f2;
+  --ink: #1b1f22;
+  --muted: #66716c;
+  --panel: #ffffff;
+  --line: #dce4df;
+  --green: #1f8a5b;
+  --green-dark: #156c46;
+  --red: #c94735;
+  --blue: #2f6db3;
+  --shadow: 0 18px 50px rgba(30, 45, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(31, 138, 91, 0.16), transparent 34%),
+    linear-gradient(315deg, rgba(47, 109, 179, 0.14), transparent 36%),
+    var(--bg);
+}
+
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.topbar {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--green-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 8vw, 4.25rem);
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(31, 138, 91, 0.15);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.panel-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.panel-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.icon-badge {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: #e6f3eb;
+  color: var(--green-dark);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.worker-form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #bfcac4;
+  border-radius: 8px;
+  padding: 0 12px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 3px solid rgba(47, 109, 179, 0.22);
+  border-color: var(--blue);
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 14px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary {
+  color: white;
+  background: var(--green);
+}
+
+.primary:hover {
+  background: var(--green-dark);
+}
+
+.secondary {
+  color: var(--ink);
+  background: #eef2ef;
+}
+
+.secondary:hover {
+  background: #e1e8e4;
+}
+
+.message {
+  min-height: 24px;
+  margin: 18px 0 0;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.summary-grid div {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfcfb;
+}
+
+.summary-grid span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.summary-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.worker-list {
+  display: grid;
+  gap: 10px;
+}
+
+.worker-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 70px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--red);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.worker-card.on {
+  border-left-color: var(--green);
+}
+
+.worker-card strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.worker-card small {
+  color: var(--muted);
+}
+
+.badge {
+  min-width: 82px;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: #fbe8e5;
+  color: var(--red);
+}
+
+.badge.on {
+  background: #e5f4ec;
+  color: var(--green-dark);
+}
+
+.empty-state {
+  border: 1px dashed #b8c4bd;
+  border-radius: 8px;
+  padding: 22px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 22px, 1120px);
+    padding-top: 18px;
+  }
+
+  .topbar,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    display: grid;
+    min-height: 130px;
+  }
+
+  .status-pill {
+    width: 100%;
+  }
+
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+}
