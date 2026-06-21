@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#096545">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Climbase">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Climbase</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/climbase-logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/climbase-logo.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="hero-content">
+          <div class="brand-lockup">
+            <img class="brand-logo" src="icons/climbase-logo.png" alt="Climbase logo">
+            <p class="eyebrow">Climbase</p>
+          </div>
+          <h1>Build smarter climbing routes from any wall photo.</h1>
+          <p class="hero-copy">Create your own climb or generate easy, moderate, and hard routes for training.</p>
+          <div class="hero-chips" aria-label="Climbase features">
+            <span>Manual routes</span>
+            <span>Easy</span>
+            <span>Moderate</span>
+            <span>Hard</span>
+            <span>Installable app</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button id="installButton" class="secondary light" type="button" hidden>Install app</button>
+          <button id="downloadButton" class="primary" type="button" disabled>Download route</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="panel controls" aria-label="Route controls">
+          <section class="account-card" aria-label="Climbase account">
+            <div id="loggedOutView">
+              <h2>Climber login</h2>
+              <p>Enter your name to personalize this device.</p>
+              <form id="loginForm" class="login-form">
+                <label for="climberName">Climber name</label>
+                <input id="climberName" type="text" placeholder="Your name" autocomplete="name" required>
+                <button class="primary" type="submit">Login</button>
+              </form>
+            </div>
+
+            <div id="loggedInView" hidden>
+              <span class="account-label">Logged in as</span>
+              <strong id="activeClimberName"></strong>
+              <button id="logoutButton" class="secondary" type="button">Logout</button>
+            </div>
+          </section>
+
+          <label class="upload-box" for="imageUpload">
+            <span>Upload wall picture</span>
+            <small>Choose a photo of the climbing wall.</small>
+            <input id="imageUpload" type="file" accept="image/*">
+          </label>
+
+          <form id="routeForm" class="route-form">
+            <label for="routeName">Route name</label>
+            <input id="routeName" type="text" placeholder="Blue corner climb" required>
+
+            <label for="routeGrade">Grade</label>
+            <input id="routeGrade" type="text" placeholder="V3, 6a, 5.10b">
+
+            <label for="routeColor">Hold marker color</label>
+            <input id="routeColor" type="color" value="#1f8a5b">
+
+            <button class="primary" type="submit">Make new climb</button>
+          </form>
+
+          <section class="generator">
+            <div class="section-title compact">
+              <h2>Generate climb</h2>
+            </div>
+
+            <label for="difficultySelect">Difficulty</label>
+            <select id="difficultySelect">
+              <option value="easy">Easy route</option>
+              <option value="moderate">Moderate route</option>
+              <option value="hard">Hard route</option>
+            </select>
+            <div id="difficultyInfo" class="difficulty-info">
+              <strong>Easy route</strong>
+              <span>Best for new climbers. Bigger moves are avoided and the route stays straighter.</span>
+              <small>Suggested grade: V0-V2</small>
+            </div>
+
+            <button id="generateButton" class="primary" type="button" disabled>Generate new route</button>
+          </section>
+
+          <section class="premium-card" aria-label="Climbase premium">
+            <span class="premium-kicker">Premium</span>
+            <h2>Upgrade for serious training</h2>
+            <p>Premium tools are planned for climbers, coaches, and gyms that want to save, share, and improve routes.</p>
+            <ul>
+              <li>Save unlimited routes</li>
+              <li>Training plans by level</li>
+              <li>Cloud sync on phone and laptop</li>
+              <li>Share routes with friends or coaches</li>
+            </ul>
+            <button id="premiumButton" class="premium-button" type="button">View premium</button>
+            <p id="premiumMessage" class="premium-message" role="status"></p>
+          </section>
+
+          <div class="button-grid">
+            <button id="undoButton" class="secondary" type="button" disabled>Undo point</button>
+            <button id="clearButton" class="secondary danger" type="button" disabled>Clear climb</button>
+          </div>
+
+          <section>
+            <div class="section-title">
+              <h2>Climbs</h2>
+              <span id="routeCount">0</span>
+            </div>
+            <div id="routeList" class="route-list" aria-live="polite"></div>
+          </section>
+        </aside>
+
+        <section class="map-panel" aria-label="Picture route editor">
+          <div id="canvasWrap" class="canvas-wrap empty">
+            <canvas id="routeCanvas"></canvas>
+            <div id="emptyState" class="empty-state">
+              <div class="wall-preview" aria-hidden="true">
+                <span class="hold hold-one"></span>
+                <span class="hold hold-two"></span>
+                <span class="hold hold-three"></span>
+                <span class="hold hold-four"></span>
+              </div>
+              <strong>No wall picture uploaded yet.</strong>
+              <span>Upload a wall photo, create a climb, then click each hold in order.</span>
+            </div>
+          </div>
+          <p id="helpText" class="help-text">Tip: click the start hold first, then each next hold, and finish on the top hold.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
