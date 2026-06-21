@@ -1,0 +1,20 @@
+{
+  "name": "Climbase",
+  "short_name": "Climbase",
+  "description": "Create and generate climbing routes from a wall photo.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef3f1",
+  "theme_color": "#096545",
+  "categories": ["sports", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icons/climbase-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
