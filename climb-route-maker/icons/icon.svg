@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Climbase icon">
-  <rect width="512" height="512" rx="96" fill="#096545"/>
-  <path d="M142 384 256 116l114 268h-68l-46-118-46 118z" fill="#ffffff"/>
-  <circle cx="177" cy="158" r="28" fill="#f59e0b"/>
-  <circle cx="332" cy="211" r="24" fill="#11a06d"/>
-  <circle cx="215" cy="304" r="22" fill="#cf3f30"/>
-  <path d="M176 158c42 8 90 26 156 53M332 211c-31 28-66 58-117 93" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" opacity=".75"/>
-</svg>

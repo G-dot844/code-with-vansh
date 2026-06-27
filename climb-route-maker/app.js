@@ -1,6 +1,7 @@
 const imageUpload = document.querySelector("#imageUpload");
 const loginForm = document.querySelector("#loginForm");
 const climberNameInput = document.querySelector("#climberName");
+const climberPasswordInput = document.querySelector("#climberPassword");
 const loggedOutView = document.querySelector("#loggedOutView");
 const loggedInView = document.querySelector("#loggedInView");
 const activeClimberName = document.querySelector("#activeClimberName");
@@ -353,14 +354,17 @@ routeForm.addEventListener("submit", (event) => {
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = cleanInput(climberNameInput.value);
+  const password = climberPasswordInput.value;
 
-  if (!name) {
+  if (!name || !password) {
     return;
   }
 
   climberName = name;
   localStorage.setItem("climbase_climber_name", climberName);
+  localStorage.setItem("climbase_has_local_password", "true");
   climberNameInput.value = "";
+  climberPasswordInput.value = "";
   helpText.textContent = `Welcome, ${climberName}. Upload a wall photo or generate a climb.`;
   renderLoginState();
 });
@@ -368,6 +372,7 @@ loginForm.addEventListener("submit", (event) => {
 logoutButton.addEventListener("click", () => {
   climberName = "";
   localStorage.removeItem("climbase_climber_name");
+  localStorage.removeItem("climbase_has_local_password");
   helpText.textContent = "Logged out. You can still use Climbase on this device.";
   renderLoginState();
 });

@@ -1,4 +1,4 @@
-<!doctype html>
+ what the <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -28,6 +28,7 @@
             <span>Easy</span>
             <span>Moderate</span>
             <span>Hard</span>
+            <span>Beginner guide</span>
             <span>Installable app</span>
           </div>
         </div>
@@ -42,10 +43,15 @@
           <section class="account-card" aria-label="Climbase account">
             <div id="loggedOutView">
               <h2>Climber login</h2>
-              <p>Enter your name to personalize this device.</p>
+              <p>Enter your name and password to personalize this device.</p>
               <form id="loginForm" class="login-form">
                 <label for="climberName">Climber name</label>
                 <input id="climberName" type="text" placeholder="Your name" autocomplete="name" required>
+
+                <label for="climberPassword">Password</label>
+                <input id="climberPassword" type="password" placeholder="Enter password" autocomplete="current-password" required>
+                <small class="login-note">Demo login only. Password is not sent online.</small>
+
                 <button class="primary" type="submit">Login</button>
               </form>
             </div>

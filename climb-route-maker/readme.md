@@ -9,7 +9,7 @@ Useful examples:
 - Create more than one climbing route in different colors.
 - Generate suggested easy, moderate, or hard routes.
 - Show beginner-friendly difficulty guidance for each generated route.
-- Login and logout locally with a climber name.
+- Login and logout locally with a climber name and password field.
 - Premium feature preview for future paid tools.
 - Download the final wall picture with the climbing routes drawn on it.
 - Install it as an app on Mac, Windows, Android, and iOS when served from a browser.
@@ -21,9 +21,7 @@ Useful examples:
 - `app.js`: wall upload, climbing route drawing, route generation, route list, and download behavior
 - `manifest.webmanifest`: installable app settings
 - `service-worker.js`: offline app cache
-- `icons/climbase-hold-wordmark.svg`: Climbase word logo made with climbing holds
 - `icons/climbase-logo.png`: realistic app logo with climbing holds and route line
-- `icons/icon.svg`: older vector app icon backup
 - `server.py`: FastAPI server that serves the app
 - `requirements.txt`: Python dependencies
 
@@ -75,7 +73,7 @@ For phone installation from another device, Climbase should be hosted online wit
 6. Select another climb from the list when you want to edit it.
 7. Press `Download route` to save the finished picture.
 
-The current login is local to the browser. It is not a secure online account system yet.
+The current login is local to the browser. It is not a secure online account system yet. The demo asks for a password, but the app does not send it online or store the real password.
 
 ## Premium preview
 

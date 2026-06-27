@@ -277,6 +277,7 @@ label {
 }
 
 input[type="text"],
+input[type="password"],
 select {
   width: 100%;
   min-height: 46px;
@@ -285,6 +286,11 @@ select {
   padding: 0 12px;
   color: var(--ink);
   background: #ffffff;
+}
+
+.login-note {
+  color: var(--muted);
+  font-size: 0.78rem;
 }
 
 .account-card {

@@ -5,10 +5,7 @@ const APP_FILES = [
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./icons/icon.svg",
-  "./icons/climbase-logo.png",
-  "./icons/climbase-hold-wordmark.svg",
-  "./icons/climbase-hold-wordmark-v2.svg"
+  "./icons/climbase-logo.png"
 ];
 
 self.addEventListener("install", (event) => {
